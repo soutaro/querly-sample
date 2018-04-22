@@ -3,4 +3,12 @@ end
 
 raise Error
 
-puts "Hello world"
+def write(message, io=STDOUT)
+  io.puts(message)
+end
+
+io = File.open("foo.txt")
+
+write "Hello world", io
+
+io.close
