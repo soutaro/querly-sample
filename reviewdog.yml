@@ -1,0 +1,5 @@
+runner:
+  querly:
+    cmd: "bundle exec querly check"
+    errorformat:
+      - "%f:%l:%c\t%m"
