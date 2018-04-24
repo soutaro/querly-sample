@@ -10,4 +10,4 @@ install:
 script:
   - >-
     reviewdog -ci=travis
-    bundle exec pronto run -f github_pr github_status
+    PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} bundle exec pronto run -f github_pr github_status
