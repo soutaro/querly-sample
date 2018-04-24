@@ -1,4 +1,10 @@
-class Error < Exception
+class ImportTimeoutError < Exception
+  attr_reader :duration, :issues
+
+  def initialize(duration, issues)
+    @duration = duration
+    @issues = issues
+  end
 end
 
 raise Error
@@ -11,7 +17,7 @@ def import_issues!(build, issues)
   expires_at = Time.current + timeout
 
   issues.each do |issue|
-    raise TimeoutError if expires_at > Time.current
+    raise ImportTimeoutError.new(timeout, issues.size) if expires_at > Time.current
   end
 
 rescue
