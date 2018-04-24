@@ -10,3 +10,4 @@ install:
 script:
   - >-
     reviewdog -ci=travis
+    bundle exec pronto run -f github_pr github_status
