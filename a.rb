@@ -15,8 +15,7 @@ def import_issues!(build, issues)
   end
 
 rescue
-  build.repository.organization.with_octokit do |octokit|
-    commit_status!(octokit, build, octokit)
-  end
+  commit_status!(build.repository.organization.octokit, build, :error)
+  raise
 end
 
